@@ -1,0 +1,4 @@
+{
+  "view-todo": "http://localhost:4202",
+  "create-todo" : "http://localhost:4201"
+}
