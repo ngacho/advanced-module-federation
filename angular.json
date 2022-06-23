@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "todos-host": "apps/todos-host",
+    "todos-host-e2e": "apps/todos-host-e2e"
+  }
+}
