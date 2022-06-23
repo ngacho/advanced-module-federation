@@ -1,0 +1,49 @@
+<div class="nav-bar">
+    <div class="title">
+      <h2>{{ title }}</h2>
+    </div>
+  
+    <div class="form-container">
+      <form (ngSubmit)="onSubmit(taskDetailForm)" #taskDetailForm="ngForm">
+        <label for="title">Task Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Please name your task"
+          class="form-control"
+          ngModel
+          required
+        />
+  
+        <label for="description">Description</label>
+        <input
+          type="text"
+          id="description"
+          name="description"
+          class="form-control"
+          placeholder="Please describe your task"
+          ngModel
+          required
+        />
+  
+        <div class="operation-buttons">
+          <input
+            [disabled]="taskDetailForm.invalid"
+            class="btn btn-primary"
+            type="submit"
+            value="Submit Task"
+          />
+  
+          <input
+            class="btn btn-primary"
+            id="cancel"
+            (click)="showAddTaskForm()"
+            type="submit"
+            value="Cancel"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+  

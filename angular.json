@@ -2,7 +2,12 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "todos-host": "apps/todos-host",
-    "todos-host-e2e": "apps/todos-host-e2e"
+    "create-todo": "apps/create-todo",
+    "create-todo-e2e": "apps/create-todo-e2e",
+    "data-store": "libs/data-store",
+    "todo-dashboard": "apps/todo-dashboard",
+    "todo-dashboard-e2e": "apps/todo-dashboard-e2e",
+    "view-todo": "apps/view-todo",
+    "view-todo-e2e": "apps/view-todo-e2e"
   }
 }

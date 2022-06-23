@@ -1,0 +1,30 @@
+<div class="host-application">
+  
+  <div class="menus">
+    <ul class="card-wrapper">
+      <li class="card">
+        <h3><a routerLink = "/view-todo" routerLinkActive="active">Show todos</a></h3>
+      </li>
+      <li class="card">
+        <h3><a routerLink = "/create-todo" routerLinkActive="active">Create Todo</a></h3>
+      </li>
+
+      <li class="card">
+        <h3>Todos Loaded? : {{areTodosLoaded$ | async}}</h3>
+      </li>
+
+      <li class="card">
+        <h3>Num of Todos : {{ numTodos$ | async}}</h3>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="state-view">
+    
+  </div>
+
+  <div class="frontend-container">
+        <router-outlet></router-outlet>
+  </div>
+</div>
