@@ -15,6 +15,7 @@ const routes = [{ path: '', component: RemoteEntryComponent }];
   imports: [
     CommonModule,
     FormsModule,
+    DataStoreModule,
     // StoreModule.forFeature('todo-host', todoReducer),
     RouterModule.forChild(routes),
   ],
