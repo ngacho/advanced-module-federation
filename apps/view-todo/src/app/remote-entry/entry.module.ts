@@ -5,7 +5,8 @@ import { RouterModule } from '@angular/router';
 
 
 import { RemoteEntryComponent } from './entry.component';
-import { DataStoreModule } from '@mfe-prototype/data-store';
+import { StoreModule } from '@ngrx/store';
+import { DataStoreModule, todoReducer } from '@mfe-prototype/data-store';
 
 const routes = [{ path: '', component: RemoteEntryComponent }];
 
@@ -13,8 +14,8 @@ const routes = [{ path: '', component: RemoteEntryComponent }];
   declarations: [RemoteEntryComponent],
   imports: [
     CommonModule,
-    
-    DataStoreModule,
+    FormsModule,
+    // StoreModule.forFeature('todo-host', todoReducer),
     RouterModule.forChild(routes),
   ],
   providers: [],

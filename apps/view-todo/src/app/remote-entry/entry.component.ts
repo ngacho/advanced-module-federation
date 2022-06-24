@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Update } from '@ngrx/entity';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs/internal/Observable';
@@ -18,7 +18,7 @@ import { of } from 'rxjs';
   templateUrl: './app.viewtodo-component.html',
   styleUrls: ['./app.viewtodo-component.css'],
 })
-export class RemoteEntryComponent {
+export class RemoteEntryComponent implements OnInit {
   title = 'Your Todo List';
 
   isUpdating = false;
@@ -30,27 +30,20 @@ export class RemoteEntryComponent {
   };
 
   todos$: Observable<ToDo[]> = new Observable<ToDo[]>();
+  mfeTodosLoad$: Observable<boolean>;
 
-  mfeTodosLoad$: Observable<boolean> = of(false);
-
-  constructor(private store: Store<ToDoState>) {}
+  constructor(private store: Store<ToDoState>) {
+    this.mfeTodosLoad$ = this.store.pipe(select(areTodosLoaded));
+  }
 
   ngOnInit(): void {
     
-    this.mfeTodosLoad$.pipe(distinctUntilChanged()).subscribe((value) => {
-      if (!value) {
+    this.mfeTodosLoad$.subscribe((value) => {
+      if(!value) {
+        console.log('No todos');
         this.store.dispatch(todoActions.loadToDos());
       }
     });
-
-    // see how the whole store looks like
-    this.store.subscribe((state) => {
-      const todoData = state as any;
-      // this.numTodos$ = of(todoData['todos'].ids.length);
-    });
-    this.store.dispatch(todoActions.loadToDos());
-
-    this.mfeTodosLoad$ = this.store.pipe(select(areTodosLoaded));
 
     this.todos$ = this.store.pipe(select(getTodos));
   }

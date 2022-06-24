@@ -9,6 +9,7 @@ import { StoreModule, ActionReducer, MetaReducer } from '@ngrx/store';
 import {
   DataStoreModule,
   todoReducer,
+  ToDoEffects,
   toDosFeatureKey,
 } from '@mfe-prototype/data-store';
 import { EffectsModule } from '@ngrx/effects';
@@ -29,7 +30,8 @@ export const metaReducers: MetaReducer<any>[] = [debug];
   imports: [
     BrowserModule,
     StoreModule.forRoot(
-      {},
+      // {},
+      {todos : todoReducer}, 
       {
         metaReducers,
         runtimeChecks: {
@@ -41,7 +43,8 @@ export const metaReducers: MetaReducer<any>[] = [debug];
       }
     ),
     EffectsModule.forRoot(),
-    DataStoreModule,
+    EffectsModule.forFeature([ToDoEffects]),
+    // DataStoreModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/view-todo', pathMatch: 'full' },
       {

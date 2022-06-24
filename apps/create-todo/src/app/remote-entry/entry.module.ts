@@ -18,7 +18,7 @@ const routes = [{ path: '', component: RemoteEntryComponent}];
   imports: [
     CommonModule,
     FormsModule,
-    // DataStoreModule,
+    DataStoreModule,
     RouterModule.forChild(routes),
   ],
   providers: [],

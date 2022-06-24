@@ -36,7 +36,6 @@ export const metaReducers: MetaReducer<any>[] = [debug];
       }
     }),
     EffectsModule.forRoot(),
-    DataStoreModule,
     RouterModule.forRoot(
       [
         {
